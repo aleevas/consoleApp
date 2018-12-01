@@ -9,6 +9,7 @@ use Symfony\Component\Console\{
     Output\OutputInterface,
     Output\Output
 };
+use Symfony\Component\Console\Input\InputOption;
 
 
 class WhatIsYourName extends Command {
@@ -17,15 +18,16 @@ class WhatIsYourName extends Command {
 
         $this->setName('WhatIsYourName')
              ->setDescription('Offer a greeting to the given person')
-             ->addArgument('name', InputArgument::REQUIRED, 'Please enter your name');
+             ->addArgument('name', InputArgument::REQUIRED, 'Please enter your name')
+             ->addOption('greeting', null, InputOption::VALUE_OPTIONAL, 'Can override the default greeting', 'Glad to see you');
 
     }
 
     public function execute(InputInterface $input, OutputInterface $output) {
 
-        $message = 'Glad to see you, ' . $input->getArgument('name') . '!';
+        $message = sprintf('%s, %s!', $input->getOption('greeting'), $input->getArgument('name'));
         $output->writeln("<info>{$message}</info>");
 
     }
-    
+
 }
