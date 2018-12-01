@@ -1,0 +1,19 @@
+#! /usr/bin/env php
+
+<?php 
+
+use Symfony\Component\Console\{Application, Input\InputInterface, Input\InputArgument, Output\OutputInterface, Output\Output};
+
+require 'vendor/autoload.php';
+
+$app = new Application('ConsoleAppDemo', '1.0');
+
+$app->register('WhatIsYourName')
+    ->setDescription('Offer a greeting to the given person')
+    ->addArgument('name', InputArgument::REQUIRED, 'Please enter your name')
+    ->setCode(function(InputInterface $input, OutputInterface $output) {
+        $message = 'Glad to see you, ' . $input->getArgument('name') . '!';
+        $output->writeln("<info>{$message}</info>");
+    });
+
+$app->run();
