@@ -17,6 +17,10 @@ class ComposerStaticInit9d0d650092f2cc572303a7e1768e7887
             'Symfony\\Contracts\\' => 18,
             'Symfony\\Component\\Console\\' => 26,
         ),
+        'A' => 
+        array (
+            'Acme\\' => 5,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -31,6 +35,10 @@ class ComposerStaticInit9d0d650092f2cc572303a7e1768e7887
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Acme\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
